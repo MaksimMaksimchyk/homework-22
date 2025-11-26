@@ -30,8 +30,12 @@ class MainActivityViewModel : ViewModel() {
 
     fun addNote(content: String) {
         if (content.isBlank()) return
-
         noteInteractor.addNote(content)
+        loadNotes()
+    }
+
+    fun deleteNote(note: NoteModel) {
+        noteInteractor.deleteNote(note.id)
         loadNotes()
     }
 

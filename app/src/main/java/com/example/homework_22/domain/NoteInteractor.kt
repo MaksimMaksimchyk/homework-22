@@ -11,4 +11,8 @@ class NoteInteractor(
         noteRepository.addNote(note)
     }
 
+    fun deleteNote(noteId: Long) {
+        noteRepository.deleteNote(noteId)
+    }
+
 }

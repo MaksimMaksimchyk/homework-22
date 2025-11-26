@@ -14,4 +14,8 @@ class NoteRepositoryImpl(
     override fun addNote(note: NoteModel) {
         localDataSource.addNote(note)
     }
+
+    override fun deleteNote(noteId: Long) {
+        localDataSource.deleteNote(noteId)
+    }
 }

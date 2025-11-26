@@ -1,6 +1,7 @@
 package com.example.homework_22.ui
 
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        adapter = NotesAdapter()
+        adapter = NotesAdapter(viewModel)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
     }
@@ -57,6 +58,15 @@ class MainActivity : AppCompatActivity() {
             val noteText = binding.inputNote.text.toString().trim()
             viewModel.addNote(noteText)
             binding.inputNote.text.clear()
+        }
+
+        binding.inputNote.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                binding.buttonAdd.performClick()
+                true
+            } else {
+                false
+            }
         }
     }
 
