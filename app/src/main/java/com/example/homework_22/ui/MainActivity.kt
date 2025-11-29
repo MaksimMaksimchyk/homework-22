@@ -20,7 +20,7 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: MainActivityViewModel
+    private val viewModel: MainActivityViewModel by viewModels()
     private lateinit var adapter: NotesAdapter
     private lateinit var binding: ActivityMainBinding
 
@@ -35,17 +35,10 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-
-
-        setupViewModel()
         setupRecyclerView()
         setupObservers()
         setupClickListeners()
 
-    }
-
-    private fun setupViewModel() {
-        viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
     }
 
     private fun setupRecyclerView() {

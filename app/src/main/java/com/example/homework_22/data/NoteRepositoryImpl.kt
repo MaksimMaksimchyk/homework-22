@@ -17,6 +17,5 @@ class NoteRepositoryImpl(
 
     override fun deleteNote(noteId: Long) {
         localDataSource.deleteNote(noteId)
-
     }
 }
