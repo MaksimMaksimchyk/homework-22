@@ -10,6 +10,6 @@ class LocalNoteDataSource {
         notes.add(0, note)
     }
     fun deleteNote(noteId: Long) {
-        notes.removeAll { it.id == noteId }
+        notes.remove(notes.find { it.id == noteId })
     }
 }
